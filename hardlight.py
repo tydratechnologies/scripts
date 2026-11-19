@@ -34,9 +34,10 @@ def hard_light(base: np.ndarray, top: np.ndarray) -> np.ndarray:
 def main() -> None:
     print("\n=== Hard Light Raster Blend ===\n")
 
-    color_path = Path(input("Path to color raster (.tif): ").strip())
-    hs_path = Path(input("Path to hillshade raster (.tif): ").strip())
-    out_path = Path(input("Output path (.tif): ").strip())
+    # Paths are relative to the directory where the script is run.
+    color_path = Path("color.tif")
+    hs_path = Path("../raw/hs.tif")
+    out_path = Path("blend.tif")
 
     if not color_path.exists():
         raise FileNotFoundError(f"Color raster not found: {color_path}")
